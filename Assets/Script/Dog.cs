@@ -95,6 +95,7 @@ public class Dog : MonoBehaviour
             AttCoolTime = true;
             Invoke("inv", 1f);
         }
+        //AttCoolTime이 true지만 적이있을때 타겟을 정해서 무브를 안하게 해야하나?
     }
 
     private void OneTarget()

@@ -13,16 +13,28 @@ PrefabInstance:
       value: Dog Variant
       objectReference: {fileID: 0}
     - target: {fileID: 853880450766615439, guid: aaa575961a9bc9d45a2304f60daab764, type: 3}
+      propertyPath: m_FlipX
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 853880450766615439, guid: aaa575961a9bc9d45a2304f60daab764, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 5b28182b50e39f04cb5dea85755526b5, type: 3}
+    - target: {fileID: 853880450766615439, guid: aaa575961a9bc9d45a2304f60daab764, type: 3}
       propertyPath: m_Color.b
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 853880450766615439, guid: aaa575961a9bc9d45a2304f60daab764, type: 3}
       propertyPath: m_Color.g
-      value: 0
+      value: 0.801486
       objectReference: {fileID: 0}
     - target: {fileID: 853880450766615439, guid: aaa575961a9bc9d45a2304f60daab764, type: 3}
       propertyPath: m_Color.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3342630521557146277, guid: aaa575961a9bc9d45a2304f60daab764, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6467142389154252881, guid: aaa575961a9bc9d45a2304f60daab764, type: 3}
       propertyPath: hp

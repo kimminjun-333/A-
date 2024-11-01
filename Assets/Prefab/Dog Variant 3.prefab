@@ -13,8 +13,20 @@ PrefabInstance:
       value: Dog Variant 3
       objectReference: {fileID: 0}
     - target: {fileID: 853880450766615439, guid: aaa575961a9bc9d45a2304f60daab764, type: 3}
+      propertyPath: m_FlipX
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 853880450766615439, guid: aaa575961a9bc9d45a2304f60daab764, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d745c415bf549e149bc893babd37e39d, type: 3}
+    - target: {fileID: 853880450766615439, guid: aaa575961a9bc9d45a2304f60daab764, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 853880450766615439, guid: aaa575961a9bc9d45a2304f60daab764, type: 3}
       propertyPath: m_Color.b
-      value: 0.21038437
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 853880450766615439, guid: aaa575961a9bc9d45a2304f60daab764, type: 3}
       propertyPath: m_Color.g
@@ -22,7 +34,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 853880450766615439, guid: aaa575961a9bc9d45a2304f60daab764, type: 3}
       propertyPath: m_Color.r
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6467142389154252881, guid: aaa575961a9bc9d45a2304f60daab764, type: 3}
       propertyPath: hp
