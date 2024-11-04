@@ -20,6 +20,7 @@ public class DogSpawner : Spawner
     private float maxhp;
     public int Gold;
     public int maxgold;
+    private float goldDuration = 0.5f;
 
     public float skilldamage;
     public float skillCoolTime;
@@ -88,10 +89,10 @@ public class DogSpawner : Spawner
 
     }
 
+
     private void Text()
     {
 
-        goldtext.text = Gold + " / " + maxgold + "¿ø";
         hptext.text = HP + " / " + maxhp;
         if (Level < LevelMax)
         {
@@ -153,13 +154,29 @@ public class DogSpawner : Spawner
             yield return new WaitForSeconds(1f);
             if (Gold < maxgold)
             {
-                Gold += 6 + ((Level - 1) * 4);
+                int plusgold = 6 + ((Level - 1) * 4);
+                StartCoroutine(DisplayGold(Gold));
+                Gold += plusgold;
                 if (Gold > maxgold)
                 {
                     Gold = maxgold;
                 }
             }
         }
+    }
+
+    private IEnumerator DisplayGold(int startgold)
+    {
+        float starttime = Time.time;
+        float endtime = Time.time + goldDuration;
+
+        while (Time.time < endtime)
+        {
+            goldtext.text = Mathf.Lerp(Gold, startgold, (endtime - Time.time)/goldDuration).ToString("n0") + " / " + maxgold + "¿ø";
+
+            yield return null;
+        }
+
     }
 
     public void clik(Button a)

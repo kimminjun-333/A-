@@ -31,6 +31,7 @@ public class Cat : MonoBehaviour
     private Rigidbody2D rb;
     public BoxCollider2D overlapBox;
     public TMP_Text text;
+    public Renderer Renderer;
 
     private void Awake()
     {
@@ -183,10 +184,19 @@ public class Cat : MonoBehaviour
     public void TakeDamage(float enemydamage)
     {
         hp -= enemydamage;
+        StartCoroutine(Hit());
         if(hp <= 0)
         {
             Die();
         }
+    }
+
+    private IEnumerator Hit()
+    {
+        Color C = Renderer.material.color;
+        Renderer.material.color = Color.red;
+        yield return new WaitForSeconds(0.5f);
+        Renderer.material.color = C;
     }
 
    

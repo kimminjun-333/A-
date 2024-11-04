@@ -31,6 +31,7 @@ public class Dog : MonoBehaviour
     private Rigidbody2D rb;
     public BoxCollider2D overlapBox;
     public TMP_Text text;
+    public Renderer renderer;
 
     private void Awake()
     {
