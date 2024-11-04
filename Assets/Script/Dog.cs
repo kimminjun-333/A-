@@ -56,7 +56,6 @@ public class Dog : MonoBehaviour
             Die();
         }
 
-
         if (AllTargeting == false)
         {
             OneTarget();
@@ -73,29 +72,38 @@ public class Dog : MonoBehaviour
         hpBar.fillAmount = hpAmount;
         text.text = name.ToString();
     }
-
+    bool onatt;
     private void AllTarget()
     {
         Collider2D[] colls = Physics2D.OverlapBoxAll((Vector2)transform.position + overlapBox.offset, overlapBox.size, 0);
-        if (AttCoolTime == false)
+
+        foreach (Collider2D coll in colls)
         {
-            foreach (Collider2D coll in colls)
+            if (coll.CompareTag("Cat"))
             {
-                if (coll.CompareTag("Cat"))
+                target = coll.GetComponent<Cat>();
+                if (AttCoolTime == false)
                 {
-                    target = coll.GetComponent<Cat>();
                     Att(target);
-                }
-                if (coll.CompareTag("Catspawner"))
-                {
-                    spawnertarget = coll.GetComponent<CatSpawner>();
-                    Att(spawnertarget);
+                    onatt = true;
                 }
             }
+            if (coll.CompareTag("Catspawner"))
+            {
+                spawnertarget = coll.GetComponent<CatSpawner>();
+                if (AttCoolTime == false)
+                {
+                    Att(spawnertarget);
+                    onatt = true;
+                }
+            }
+        }
+        if (onatt == true)
+        {
             AttCoolTime = true;
             Invoke("inv", 1f);
+            onatt = false;
         }
-        //AttCoolTime이 true지만 적이있을때 타겟을 정해서 무브를 안하게 해야하나?
     }
 
     private void OneTarget()
@@ -125,6 +133,7 @@ public class Dog : MonoBehaviour
         {
             if (AttCoolTime == false)
             {
+                AttCoolTime = true;
                 Att(target);
                 Invoke("inv", 1f);
             }
@@ -133,6 +142,7 @@ public class Dog : MonoBehaviour
         {
             if (AttCoolTime == false)
             {
+                AttCoolTime = true;
                 Att(spawnertarget);
                 Invoke("inv", 1f);
             }
@@ -154,7 +164,6 @@ public class Dog : MonoBehaviour
 
     private void Att(Cat target)
     {
-        AttCoolTime = true;
         print($"{name}의 공격");
         //공격
         target.TakeDamage(damage);
@@ -162,7 +171,6 @@ public class Dog : MonoBehaviour
 
     private void Att(CatSpawner dogspawner)
     {
-        AttCoolTime = true;
         print($"{name}의 공격");
         //공격
         dogspawner.HP -= damage;

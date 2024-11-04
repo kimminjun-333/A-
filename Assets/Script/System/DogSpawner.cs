@@ -87,9 +87,6 @@ public class DogSpawner : Spawner
 
     private void Text()
     {
-        float a = 1 / 6 + ((Level - 1) * 4);//1 / 초당오를 골드
-        float t = Mathf.Lerp(0, 1, a);//1초를 초당오를 골드로 나눈값의 첫번째 지점
-        float n = Time.time;
 
         goldtext.text = Gold + " / " + maxgold + "원";
         hptext.text = HP + " / " + maxhp;
@@ -101,7 +98,7 @@ public class DogSpawner : Spawner
         else
         {
             LevelUpButton.GetComponent<LevelSkillButton>().text.text = "Lv." + Level + "\n"
-               + "<size=50>레벨 업</size>" + "\n" + " ";
+               + "<size=50>레벨 업</size>" + "\n" + "최대 레벨";
         }
 
     }
@@ -154,7 +151,7 @@ public class DogSpawner : Spawner
             if (Gold < maxgold)
             {
                 Gold += 6 + ((Level - 1) * 4);
-                if(Gold > maxgold)
+                if (Gold > maxgold)
                 {
                     Gold = maxgold;
                 }
