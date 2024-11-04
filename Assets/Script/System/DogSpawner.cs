@@ -53,6 +53,9 @@ public class DogSpawner : Spawner
         StartCoroutine(goldup());
         SkillOff();
         Invoke("SkillOn", skillCoolTime);
+
+        GameManager.Instance.Win.gameObject.SetActive(false);
+        GameManager.Instance.Lose.gameObject.SetActive(false);
     }
 
     private void Update()
@@ -72,12 +75,12 @@ public class DogSpawner : Spawner
                 BottonClasses[i].Button.interactable = true;
             }
         }
-        if(Gold > levelupprice[Level])
+        if(Gold >= levelupprice[Level])
         {
             LevelUpButton.GetComponent<LevelSkillButton>().hideimage.gameObject.SetActive(false);
             LevelUpButton.interactable = true;
         }
-        if(Gold <= levelupprice[Level])
+        if(Gold < levelupprice[Level])
         {
             LevelUpButton.GetComponent<LevelSkillButton>().hideimage.gameObject.SetActive(true);
             LevelUpButton.interactable = false;
@@ -184,6 +187,14 @@ public class DogSpawner : Spawner
 
     }
 
-   
+    internal void Die()
+    {
+        if (HP <= 0)
+        {
+            GameManager.Instance.Lose.gameObject.SetActive(true);
+            Time.timeScale = 0f;
+        }
+    }
+
 
 }

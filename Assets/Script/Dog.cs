@@ -76,7 +76,6 @@ public class Dog : MonoBehaviour
     private void AllTarget()
     {
         Collider2D[] colls = Physics2D.OverlapBoxAll((Vector2)transform.position + overlapBox.offset, overlapBox.size, 0);
-
         foreach (Collider2D coll in colls)
         {
             if (coll.CompareTag("Cat"))
@@ -169,14 +168,14 @@ public class Dog : MonoBehaviour
         target.TakeDamage(damage);
     }
 
-    private void Att(CatSpawner dogspawner)
+    private void Att(CatSpawner catspawner)
     {
         print($"{name}의 공격");
         //공격
-        dogspawner.HP -= damage;
-        if (dogspawner.HP <= 0)
+        catspawner.HP -= damage;
+        if (catspawner.HP <= 0)
         {
-            //spawnertarget.Die();
+            catspawner.Die();
         }
     }
     public void TakeDamage(float enemydamage)

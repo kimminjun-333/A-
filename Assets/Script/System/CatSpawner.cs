@@ -51,5 +51,12 @@ public class CatSpawner : Spawner
         GameManager.Instance.cats.Add(catss);
     }
 
-
+    internal void Die()
+    {
+        if (HP < 0)
+        {
+            GameManager.Instance.Win.gameObject.SetActive(true);
+            Time.timeScale = 0f;
+        }
+    }
 }

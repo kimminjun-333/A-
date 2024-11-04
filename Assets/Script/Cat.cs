@@ -72,27 +72,36 @@ public class Cat : MonoBehaviour
         hpBar.fillAmount = hpAmount;
         text.text = name.ToString();
     }
-
+    bool onatt;
     private void AllTarget()
     {
         Collider2D[] colls = Physics2D.OverlapBoxAll((Vector2)transform.position + overlapBox.offset, overlapBox.size, 0);
-        if (AttCoolTime == false)
+        foreach (Collider2D coll in colls)
         {
-            foreach (Collider2D coll in colls)
+            if (coll.CompareTag("Dog"))
             {
-                if (coll.CompareTag("Dog"))
+                target = coll.GetComponent<Dog>();
+                if (AttCoolTime == false)
                 {
-                    target = coll.GetComponent<Dog>();
                     Att(target);
-                }
-                if (coll.CompareTag("Dogspawner"))
-                {
-                    spawnertarget = coll.GetComponent<DogSpawner>();
-                    Att(spawnertarget);
+                    onatt = true;
                 }
             }
+            if (coll.CompareTag("Dogspawner"))
+            {
+                spawnertarget = coll.GetComponent<DogSpawner>();
+                if (AttCoolTime == false)
+                {
+                    Att(spawnertarget);
+                    onatt = true;
+                }
+            }
+        }
+        if (onatt == true)
+        {
             AttCoolTime = true;
             Invoke("inv", 1f);
+            onatt = false;
         }
     }
 
@@ -167,7 +176,7 @@ public class Cat : MonoBehaviour
         dogspawner.HP -= damage;
         if (dogspawner.HP <= 0)
         {
-            //spawnertarget.Die();
+            dogspawner.Die();
         }
     }
 
