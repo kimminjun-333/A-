@@ -18,11 +18,16 @@ public class DogSpawner : Spawner
     public int[] levelupmaxgold;
     public float HP;
     private float maxhp;
+    [Tooltip("초당 오르는 기본골드")]
+    public int Upgold;
+    [Tooltip("현재 골드")]
     public int Gold;
     private int maxgold;
     private float goldDuration = 0.5f;
 
+    [Tooltip("필살기 데미지")]
     public float skilldamage;
+    [Tooltip("필살기 쿨타임")]
     public float skillCoolTime;
 
     [Tooltip("스폰지점 y\nx : 최소값, y는 최대값")]
@@ -161,7 +166,7 @@ public class DogSpawner : Spawner
             yield return new WaitForSeconds(1f);
             if (Gold < maxgold)
             {
-                int plusgold = 6 + ((Level - 1) * 4);
+                int plusgold = Upgold + ((Level - 1) * 4);
                 StartCoroutine(DisplayGold(Gold));
                 Gold += plusgold;
                 if (Gold > maxgold)
