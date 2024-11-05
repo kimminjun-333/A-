@@ -2,18 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
-public class StartScene : MonoBehaviour
+public class EndGame : MonoBehaviour
 {
 
+    public Button reset;
+    public Button Exit;
 
-    public void StartGame()
+    public void Resetgame()
     {
-        SceneManager.LoadScene("GameScene");
-        Time.timeScale = 1.0f;
+        SceneManager.LoadScene("StartScene");
+        Destroy(GameManager.Instance.gameObject);
     }
 
-    public void ExitGame()
+    public void Exitgame()
     {
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
@@ -21,4 +24,5 @@ public class StartScene : MonoBehaviour
         Application.Quit();
 #endif
     }
+
 }

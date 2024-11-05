@@ -32,6 +32,7 @@ public class Cat : MonoBehaviour
     public BoxCollider2D overlapBox;
     public TMP_Text text;
     public Renderer Renderer;
+    public GameObject die;
 
     private void Awake()
     {
@@ -149,7 +150,6 @@ public class Cat : MonoBehaviour
 
     private void inv()
     {
-        print("공격쿨타임종료");
         AttCoolTime = false;
     }
 
@@ -164,16 +164,12 @@ public class Cat : MonoBehaviour
     private void Att(Dog target)
     {
         AttCoolTime = true;
-        print($"{name}의 공격");
-        //공격
         target.TakeDamage(damage);
     }
 
     private void Att(DogSpawner dogspawner)
     {
         AttCoolTime = true;
-        print($"{name}의 공격");
-        //공격
         dogspawner.HP -= damage;
         if (dogspawner.HP <= 0)
         {
@@ -203,6 +199,7 @@ public class Cat : MonoBehaviour
 
     public void Die()
     {
+        Instantiate(die, new Vector2(transform.position.x,transform.position.y + 2.5f), Quaternion.identity);
         GameManager.Instance.cats.Remove(this);
         Destroy(gameObject);
     }

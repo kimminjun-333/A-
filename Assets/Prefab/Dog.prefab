@@ -61,6 +61,8 @@ MonoBehaviour:
   hpBar: {fileID: 1310021245403451373}
   overlapBox: {fileID: 3342630521557146277}
   text: {fileID: 4227814076500646081}
+  Renderer: {fileID: 853880450766615439}
+  die: {fileID: 6538000359813094480, guid: 7343df2259dc03d41b93f43114bf051e, type: 3}
 --- !u!50 &7535916480532937133
 Rigidbody2D:
   serializedVersion: 4

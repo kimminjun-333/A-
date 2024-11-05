@@ -5,7 +5,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.WSA;
+
 
 public class DogSpawner : Spawner
 {
@@ -30,6 +30,7 @@ public class DogSpawner : Spawner
     //public Button[] buttons;
 
     public Dog[] dogprefab;
+    public GameObject skill;
 
     public Button LevelUpButton;
     public Button SkillButton;
@@ -78,16 +79,15 @@ public class DogSpawner : Spawner
         }
         if(Gold >= levelupprice[Level])
         {
-            LevelUpButton.GetComponent<LevelSkillButton>().hideimage.gameObject.SetActive(false);
             LevelUpButton.interactable = true;
         }
         if(Gold < levelupprice[Level])
         {
-            LevelUpButton.GetComponent<LevelSkillButton>().hideimage.gameObject.SetActive(true);
             LevelUpButton.interactable = false;
         }
 
     }
+
 
 
     private void Text()
@@ -114,6 +114,7 @@ public class DogSpawner : Spawner
         {
             if(coll.CompareTag("Cat"))
             {
+                Instantiate(skill, new Vector2(coll.transform.position.x, coll.transform.position.y + 20), Quaternion.identity);
                 coll.GetComponent<Cat>().TakeDamage(skilldamage);
             }
         }
@@ -123,13 +124,11 @@ public class DogSpawner : Spawner
 
     public void SkillOn()
     {
-        SkillButton.GetComponent<LevelSkillButton>().hideimage.gameObject.SetActive(false);
         SkillButton.interactable = true;
     }
 
     public void SkillOff()
     {
-        SkillButton.GetComponent<LevelSkillButton>().hideimage.gameObject.SetActive(true);
         SkillButton.interactable = false;
     }
 
