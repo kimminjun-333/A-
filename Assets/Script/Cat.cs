@@ -187,7 +187,7 @@ public class Cat : MonoBehaviour
     public void TakeDamage(float enemydamage)
     {
         hp -= enemydamage;
-        StartCoroutine(Hit());
+        StartCoroutine(this.Hit());
         if(hp <= 0)
         {
             Die();
