@@ -10,17 +10,24 @@ public class Dog : MonoBehaviour
 {
     public new string name;
 
+    [Tooltip("이동속도")]
     public float moveSpeed;
+    [Tooltip("공격속도")]
     public float Atttime;
+    [Tooltip("사정거리")]
     public float range;
+    [Tooltip("공격력")]
     public float damage;
     private float maxhp;
+    [Tooltip("체력")]
     public float hp;
+    [Tooltip("생산비용")]
     public int price;
 
     private bool AttCoolTime = false;
+    [Tooltip("전체공격(체크O)/단일공격(체크X)")]
     public bool AllTargeting;
-    private bool onatt;
+    private bool onattAll;
 
     public float hpAmount { get { return hp / maxhp; } }
     public Image hpBar;
@@ -86,7 +93,7 @@ public class Dog : MonoBehaviour
                 if (AttCoolTime == false)
                 {
                     Att(target);
-                    onatt = true;
+                    onattAll = true;
                 }
             }
             if (coll.CompareTag("Catspawner"))
@@ -95,15 +102,15 @@ public class Dog : MonoBehaviour
                 if (AttCoolTime == false)
                 {
                     Att(spawnertarget);
-                    onatt = true;
+                    onattAll = true;
                 }
             }
         }
-        if (onatt == true)
+        if (onattAll == true)
         {
             AttCoolTime = true;
-            Invoke("inv", 1f);
-            onatt = false;
+            Invoke("inv", Atttime);
+            onattAll = false;
         }
     }
 
@@ -136,7 +143,7 @@ public class Dog : MonoBehaviour
             {
                 AttCoolTime = true;
                 Att(target);
-                Invoke("inv", 1f);
+                Invoke("inv", Atttime);
             }
         }
         if (target == null && spawnertarget != null)
@@ -145,7 +152,7 @@ public class Dog : MonoBehaviour
             {
                 AttCoolTime = true;
                 Att(spawnertarget);
-                Invoke("inv", 1f);
+                Invoke("inv", Atttime);
             }
         }
     }

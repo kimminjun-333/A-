@@ -60,6 +60,10 @@ PrefabInstance:
       propertyPath: damage
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 6467142389154252881, guid: aaa575961a9bc9d45a2304f60daab764, type: 3}
+      propertyPath: Atttime
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8669476123732084429, guid: aaa575961a9bc9d45a2304f60daab764, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
