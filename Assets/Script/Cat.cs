@@ -22,6 +22,7 @@ public class Cat : MonoBehaviour
 
     private bool AttCoolTime = false;
     public bool AllTargeting;
+    private bool onatt;
 
     public float hpAmount { get { return hp / maxhp; } }
 
@@ -74,7 +75,7 @@ public class Cat : MonoBehaviour
         hpBar.fillAmount = hpAmount;
         text.text = name.ToString();
     }
-    bool onatt;
+
     private void AllTarget()
     {
         Collider2D[] colls = Physics2D.OverlapBoxAll((Vector2)transform.position + overlapBox.offset, overlapBox.size, 0);

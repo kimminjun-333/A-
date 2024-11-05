@@ -48,7 +48,7 @@ public class LevelSkillButton : MonoBehaviour
         }
     }
 
-    public IEnumerator ColorC()
+    private IEnumerator ColorC()
     {
         while (true)
         {

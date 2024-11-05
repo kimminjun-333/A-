@@ -10,7 +10,7 @@ public class Skill : MonoBehaviour
     private IEnumerator Start()
     {
         yield return new WaitForSeconds(time);
-        Destroy(gameObject);
+        Destroy(this.gameObject);
     }
 
     private void Update()

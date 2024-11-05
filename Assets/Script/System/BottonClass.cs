@@ -11,11 +11,11 @@ public class BottonClass : MonoBehaviour
     public Image image;
     public Image cooltimebar;
     public Image cooltimebarfraim;
-    public int price;
+    private int price;
     public DogSpawner spawner;
     public Dog DogPrefab;
     public TMP_Text text;
-    public bool CoolTime;
+    private bool CoolTime;
 
 
     private void Start()
@@ -34,7 +34,7 @@ public class BottonClass : MonoBehaviour
         cool();
     }
 
-    public void cool()
+    private void cool()
     {
         CoolTime = true;
         image.gameObject.SetActive(true);
@@ -46,12 +46,12 @@ public class BottonClass : MonoBehaviour
 
     private IEnumerator Cool()
     {
-        float s = DogPrefab.colltime;
+        float s = DogPrefab.Atttime;
         while(s > 0f)
         {
             yield return new WaitForFixedUpdate();
             s -= Time.deltaTime;
-            cooltimebar.fillAmount = (s / DogPrefab.colltime);
+            cooltimebar.fillAmount = (s / DogPrefab.Atttime);
         }
         image.gameObject.SetActive(false);
         Button.interactable = true;

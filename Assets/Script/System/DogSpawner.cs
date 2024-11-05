@@ -19,7 +19,7 @@ public class DogSpawner : Spawner
     public float HP;
     private float maxhp;
     public int Gold;
-    public int maxgold;
+    private int maxgold;
     private float goldDuration = 0.5f;
 
     public float skilldamage;
@@ -107,7 +107,7 @@ public class DogSpawner : Spawner
 
     }
 
-    public void Skill()
+    private void Skill()
     {
         bool targeton = false;
         Collider2D[] colls = Physics2D.OverlapBoxAll((Vector2)transform.position + skillbox.offset, skillbox.size, 0);
@@ -131,17 +131,17 @@ public class DogSpawner : Spawner
         }
     }
 
-    public void SkillOn()
+    private void SkillOn()
     {
         SkillButton.interactable = true;
     }
 
-    public void SkillOff()
+    private void SkillOff()
     {
         SkillButton.interactable = false;
     }
 
-    public void LeveUp()
+    private void LeveUp()
     {
         if (Level < LevelMax)
         {

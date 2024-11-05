@@ -29,11 +29,6 @@ public class CatSpawner : Spawner
         hptext.text = HP + " / " + maxhp;
     }
 
-    public void clik()
-    {
-        spawn(catprefab[0]);
-    }
-
     private IEnumerator SpawnTime(Cat catprefab, float delay, float time)
     {
         yield return new WaitForSeconds(delay);

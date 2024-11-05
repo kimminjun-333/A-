@@ -11,16 +11,16 @@ public class Dog : MonoBehaviour
     public string name;
 
     public float moveSpeed;
-    public float AttSpeed;
+    public float Atttime;
     public float range;
     public float damage;
     private float maxhp;
     public float hp;
     public int price;
-    public float colltime;
 
     private bool AttCoolTime = false;
     public bool AllTargeting;
+    private bool onatt;
 
     public float hpAmount { get { return hp / maxhp; } }
     public Image hpBar;
@@ -74,7 +74,7 @@ public class Dog : MonoBehaviour
         hpBar.fillAmount = hpAmount;
         text.text = name.ToString();
     }
-    bool onatt;
+
     private void AllTarget()
     {
         Collider2D[] colls = Physics2D.OverlapBoxAll((Vector2)transform.position + overlapBox.offset, overlapBox.size, 0);
