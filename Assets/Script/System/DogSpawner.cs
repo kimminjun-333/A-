@@ -91,6 +91,14 @@ public class DogSpawner : Spawner
             LevelUpButton.interactable = false;
         }
 
+        if (Level >= LevelMax)
+        {
+            if (LevelUpButton.GetComponent<LevelSkillButton>().maxlevel == false)
+            {
+                LevelUpButton.GetComponent<LevelSkillButton>().maxlevel = true;
+            }
+        }
+
     }
 
 
@@ -155,7 +163,7 @@ public class DogSpawner : Spawner
         }
         if(Level >= LevelMax)
         {
-            print("최대 레벨 입니다");
+
         }
     }
 

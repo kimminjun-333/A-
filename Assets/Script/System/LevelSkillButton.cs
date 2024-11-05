@@ -12,6 +12,7 @@ public class LevelSkillButton : MonoBehaviour
     private Image image;
     private Color thiscolor;
     private bool buttonon = false;
+    public bool maxlevel = false;
 
     private void Start()
     {
@@ -39,12 +40,16 @@ public class LevelSkillButton : MonoBehaviour
             image.color = thiscolor;
             if(buttonon == false)
             {
-                if (coroutine == null)
+                if (coroutine == null && maxlevel == false)
                 {
                     coroutine = StartCoroutine(ColorC());
                 }
                 buttonon = true;
             }
+        }
+        if(coroutine != null && maxlevel == true)
+        {
+            StopCoroutine(coroutine);
         }
     }
 
