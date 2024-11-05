@@ -109,6 +109,7 @@ public class DogSpawner : Spawner
 
     public void Skill()
     {
+        bool targeton = false;
         Collider2D[] colls = Physics2D.OverlapBoxAll((Vector2)transform.position + skillbox.offset, skillbox.size, 0);
         foreach (Collider2D coll in colls)
         {
@@ -116,10 +117,18 @@ public class DogSpawner : Spawner
             {
                 Instantiate(skill, new Vector2(coll.transform.position.x, coll.transform.position.y + 20), Quaternion.identity);
                 coll.GetComponent<Cat>().TakeDamage(skilldamage);
+                if (targeton == false)
+                {
+                    targeton = true;
+                }
             }
         }
-        SkillOff();
-        Invoke("SkillOn", skillCoolTime);
+        if (targeton == true)
+        {
+            SkillOff();
+            Invoke("SkillOn", skillCoolTime);
+            targeton = false;
+        }
     }
 
     public void SkillOn()

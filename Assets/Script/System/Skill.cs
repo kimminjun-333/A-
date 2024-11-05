@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Skill : MonoBehaviour
 {
-    float time = 1f;
-    Vector2 dir = new Vector2(0, -10);
+    float time = 0.5f;
+    Vector2 dir = new Vector2(0, -9);
 
     private IEnumerator Start()
     {
