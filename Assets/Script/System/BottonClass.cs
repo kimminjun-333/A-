@@ -11,11 +11,11 @@ public class BottonClass : MonoBehaviour
     public Image image;
     public Image cooltimebar;
     public Image cooltimebarfraim;
-    private int price;
+    public int price;
     public DogSpawner spawner;
     public Dog DogPrefab;
     public TMP_Text text;
-    private bool CoolTime;
+    public bool CoolTime;
 
 
     private void Start()
@@ -31,10 +31,10 @@ public class BottonClass : MonoBehaviour
         float y = Random.Range(spawner.spawnPoint.x, spawner.spawnPoint.y);
         Dog dogs = Instantiate(DogPrefab, new Vector3(spawner.transform.position.x, y), Quaternion.identity);
         GameManager.Instance.dogs.Add(dogs);
-        cool();
+        CoolTimeOn();
     }
 
-    private void cool()
+    private void CoolTimeOn()
     {
         CoolTime = true;
         image.gameObject.SetActive(true);

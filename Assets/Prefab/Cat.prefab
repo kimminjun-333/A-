@@ -521,7 +521,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84342e9740e246944b55d8bd28fd6d59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: "\uB098\uBE44"
+  name: Cat
   moveSpeed: 10
   AttSpeed: 1
   range: 10

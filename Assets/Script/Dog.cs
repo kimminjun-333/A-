@@ -8,7 +8,7 @@ using static UnityEngine.GraphicsBuffer;
 
 public class Dog : MonoBehaviour
 {
-    public string name;
+    public new string name;
 
     public float moveSpeed;
     public float Atttime;

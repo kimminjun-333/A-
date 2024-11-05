@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class StartSceneMove : MonoBehaviour
 {
-    float movespeed = 0.4f;
+    private float movespeed = 0.4f;
 
 
 

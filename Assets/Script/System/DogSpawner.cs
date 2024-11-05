@@ -52,7 +52,7 @@ public class DogSpawner : Spawner
             BottonClasses[i].cooltimebar.gameObject.SetActive(false);
             BottonClasses[i].cooltimebarfraim.gameObject.SetActive(false);
         }
-        StartCoroutine(goldup());
+        StartCoroutine(Goldup());
         SkillOff();
         Invoke("SkillOn", skillCoolTime);
 
@@ -127,7 +127,6 @@ public class DogSpawner : Spawner
         {
             SkillOff();
             Invoke("SkillOn", skillCoolTime);
-            targeton = false;
         }
     }
 
@@ -155,7 +154,7 @@ public class DogSpawner : Spawner
         }
     }
 
-    private IEnumerator goldup()
+    private IEnumerator Goldup()
     {
         while (true)
         {
@@ -175,7 +174,6 @@ public class DogSpawner : Spawner
 
     private IEnumerator DisplayGold(int startgold)
     {
-        float starttime = Time.time;
         float endtime = Time.time + goldDuration;
 
         while (Time.time < endtime)
@@ -187,7 +185,7 @@ public class DogSpawner : Spawner
 
     }
 
-    public void clik(Button a)
+    public void Clik(Button a)
     {
         if (a == BottonClasses[0].Button)
         {

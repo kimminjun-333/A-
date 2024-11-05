@@ -34,12 +34,12 @@ public class CatSpawner : Spawner
         yield return new WaitForSeconds(delay);
         while (true)
         {
-            spawn(catprefab);
+            Spawn(catprefab);
             yield return new WaitForSeconds(time);
         }
     }
 
-    public void spawn(Cat catprefab)
+    public void Spawn(Cat catprefab)
     {
         float y = Random.Range(spawnPoint.x, spawnPoint.y);
         Cat catss = Instantiate(catprefab, new Vector3(this.transform.position.x, y), Quaternion.identity);

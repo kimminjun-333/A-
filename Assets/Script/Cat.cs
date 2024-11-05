@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class Cat : MonoBehaviour
 {
-    public string name;
+    public new string name;
 
     public float moveSpeed;
     public float AttSpeed;
