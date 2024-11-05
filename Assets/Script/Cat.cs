@@ -38,6 +38,7 @@ public class Cat : MonoBehaviour
     private Rigidbody2D rb;
     public BoxCollider2D overlapBox;
     public TMP_Text text;
+    private Color Wcolor;
     public Renderer Renderer;
     public GameObject die;
 
@@ -51,6 +52,8 @@ public class Cat : MonoBehaviour
         GameManager.Instance.cats.Add(this);
 
         yield return null;
+
+        Wcolor = Renderer.material.color;
 
         maxhp = hp;
 
@@ -196,10 +199,9 @@ public class Cat : MonoBehaviour
 
     private IEnumerator Hit()
     {
-        Color C = Renderer.material.color;
         Renderer.material.color = Color.red;
         yield return new WaitForSeconds(0.5f);
-        Renderer.material.color = C;
+        Renderer.material.color = Wcolor;
     }
 
    

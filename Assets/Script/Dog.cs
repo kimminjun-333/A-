@@ -38,8 +38,10 @@ public class Dog : MonoBehaviour
     private Rigidbody2D rb;
     public BoxCollider2D overlapBox;
     public TMP_Text text;
+    private Color Wcolor;
     public Renderer Renderer;
     public GameObject die;
+
 
     private void Awake()
     {
@@ -51,6 +53,8 @@ public class Dog : MonoBehaviour
         GameManager.Instance.dogs.Add(this);
 
         yield return null;
+
+        Wcolor = Renderer.material.color;
 
         maxhp = hp;
 
@@ -194,10 +198,9 @@ public class Dog : MonoBehaviour
 
     private IEnumerator Hit()
     {
-        Color C = Renderer.material.color;
         Renderer.material.color = Color.red;
         yield return new WaitForSeconds(0.5f);
-        Renderer.material.color = C;
+        Renderer.material.color = Wcolor;
     }
 
 
