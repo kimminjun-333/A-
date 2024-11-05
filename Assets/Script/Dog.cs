@@ -157,7 +157,7 @@ public class Dog : MonoBehaviour
 
     private void Move()
     {
-        Vector2 movePos = rb.position + (new Vector2(-1, 0) * moveSpeed * Time.fixedDeltaTime);
+        Vector2 movePos = rb.position + (new Vector2(-1, 0) * moveSpeed * Time.deltaTime);
         rb.MovePosition(movePos);
     }
 

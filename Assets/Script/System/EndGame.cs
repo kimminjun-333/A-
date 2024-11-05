@@ -10,6 +10,11 @@ public class EndGame : MonoBehaviour
     public Button reset;
     public Button Exit;
 
+    private void OnEnable()
+    {
+        Time.timeScale = 0f;
+    }
+
     public void Resetgame()
     {
         SceneManager.LoadScene("StartScene");

@@ -215,7 +215,6 @@ public class DogSpawner : Spawner
         if (HP <= 0)
         {
             GameManager.Instance.Lose.gameObject.SetActive(true);
-            Time.timeScale = 0f;
         }
     }
 

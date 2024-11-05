@@ -12,35 +12,32 @@ public class PauseButton : MonoBehaviour
     public Button Mainmenu;
     public Button Exitbutton;
     private bool pauseon = false;
+    public Sprite pausesprite;
+    private Sprite Wsprite;
 
     private void Start()
     {
         pauseimage.SetActive(false);
+        Wsprite = gameObject.GetComponent<Image>().sprite;
     }
 
-    private void Update()
-    {
-        if (pauseon == true)
-        {
-            Time.timeScale = 0f;
-            pauseimage.SetActive(true);
-        }
-        if (pauseon == false)
-        {
-            Time.timeScale = 1f;
-            pauseimage.SetActive(false);
-        }
-    }
 
     public void Pause()
     {
         if(pauseon == false)
         {
             pauseon = true;
+            Time.timeScale = 0f;
+            gameObject.GetComponent<Image>().sprite = pausesprite;
+            pauseimage.SetActive(true);
+            
         }
         else if(pauseon == true)
         {
             pauseon = false;
+            Time.timeScale = GameSpeedCtrl.Instance.speed;
+            gameObject.GetComponent<Image>().sprite = Wsprite;
+            pauseimage.SetActive(false);
         }
     }
 

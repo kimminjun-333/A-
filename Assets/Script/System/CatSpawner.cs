@@ -51,7 +51,6 @@ public class CatSpawner : Spawner
         if (HP < 0)
         {
             GameManager.Instance.Win.gameObject.SetActive(true);
-            Time.timeScale = 0f;
         }
     }
 }
