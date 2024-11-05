@@ -2682,7 +2682,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2019842370}
         m_TargetAssemblyTypeName: DogSpawner, Assembly-CSharp
-        m_MethodName: clik
+        m_MethodName: Clik
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 532371198}
@@ -7054,7 +7054,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2019842370}
         m_TargetAssemblyTypeName: DogSpawner, Assembly-CSharp
-        m_MethodName: clik
+        m_MethodName: Clik
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1317675881}
@@ -9938,7 +9938,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2019842370}
         m_TargetAssemblyTypeName: DogSpawner, Assembly-CSharp
-        m_MethodName: clik
+        m_MethodName: Clik
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1771868839}
@@ -11039,7 +11039,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2019842370}
         m_TargetAssemblyTypeName: DogSpawner, Assembly-CSharp
-        m_MethodName: clik
+        m_MethodName: Clik
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1954256256}
@@ -11430,10 +11430,10 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2019842370}
         m_TargetAssemblyTypeName: DogSpawner, Assembly-CSharp
-        m_MethodName: clik
+        m_MethodName: Clik
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 2016016993}
+          m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Button, UnityEngine.UI
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -11567,7 +11567,6 @@ MonoBehaviour:
   levelupmaxgold: 000000006400000096000000c8000000fa0000002c0100005e01000090010000
   HP: 1000
   Gold: 0
-  maxgold: 0
   skilldamage: 100
   skillCoolTime: 60
   spawnPoint: {x: -20, y: 0}
