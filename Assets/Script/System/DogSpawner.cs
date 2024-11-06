@@ -203,27 +203,15 @@ public class DogSpawner : MonoBehaviour, ITakeDamage
 
     public void Clik(Button a)
     {
-        if (a == BottonClasses[0].Button)
+        for(int i = 0; i < BottonClasses.Length; i++)
         {
-            BottonClasses[0].Spawn();
-        }
-        if (a == BottonClasses[1].Button)
-        {
-            BottonClasses[1].Spawn();
-        }
-        if (a == BottonClasses[2].Button)
-        {
-            BottonClasses[2].Spawn();
-        }
-        if (a == BottonClasses[3].Button)
-        {
-            BottonClasses[3].Spawn();
-        }
-        if (a == BottonClasses[4].Button)
-        {
-            BottonClasses[4].Spawn();
+            if (a == BottonClasses[i].Button)
+            {
+                BottonClasses[i].Spawn();
+            }
         }
     }
+
     public void TakeDamage(float enemydamage)
     {
         HP -= enemydamage;

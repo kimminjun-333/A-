@@ -21,6 +21,13 @@ public class PauseButton : MonoBehaviour
         Wsprite = gameObject.GetComponent<Image>().sprite;
     }
 
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            Pause();
+        }
+    }
 
     public void Pause()
     {

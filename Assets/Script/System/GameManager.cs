@@ -10,4 +10,5 @@ public class GameManager : SingletonManager<GameManager>
 
     public Image Win;
     public Image Lose;
+    
 }
