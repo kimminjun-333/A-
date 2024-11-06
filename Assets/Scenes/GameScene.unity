@@ -4521,6 +4521,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 71690174}
+  maxlevel: 0
 --- !u!1 &724627971
 GameObject:
   m_ObjectHideFlags: 0
@@ -9921,6 +9922,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 94012584}
+  maxlevel: 0
 --- !u!1 &1746562757
 GameObject:
   m_ObjectHideFlags: 0
@@ -11854,6 +11856,7 @@ MonoBehaviour:
   skilldamage: 100
   skillCoolTime: 60
   spawnPoint: {x: -20, y: 0}
+  spawncooltime: 5
   dogprefab:
   - {fileID: 5443176152428614617, guid: c95017f6db0bf134da1246c03c066721, type: 3}
   - {fileID: 5443176152428614617, guid: e485f25509cb6284dab0410b160a5208, type: 3}
