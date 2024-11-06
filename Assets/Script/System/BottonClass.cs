@@ -5,7 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BottonClass : MonoBehaviour
+public class BottonClass : Spawner
 {
     public Button Button;
     public Image image;
@@ -28,7 +28,7 @@ public class BottonClass : MonoBehaviour
     {
         spawner.Gold -= price;
         float y = Random.Range(spawner.spawnPoint.x, spawner.spawnPoint.y);
-        Dog dogs = Instantiate(DogPrefab, new Vector3(spawner.transform.position.x, y), Quaternion.identity);
+        Instantiate(DogPrefab, new Vector3(spawner.transform.position.x, y), Quaternion.identity);
         CoolTimeOn();
     }
 

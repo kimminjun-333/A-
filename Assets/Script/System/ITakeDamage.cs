@@ -2,12 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Spawner : MonoBehaviour
+public interface ITakeDamage
 {
-
-    public virtual void spawn()
-    {
-
-    }
-
+    void TakeDamage(float enemydamage);
 }

@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class DogSpawner : Spawner
+public class DogSpawner : MonoBehaviour, ITakeDamage
 {
     [Tooltip("최대레벨")]
     public int LevelMax;
@@ -222,6 +222,15 @@ public class DogSpawner : Spawner
         if (a == BottonClasses[4].Button)
         {
             BottonClasses[4].Spawn();
+        }
+    }
+    public void TakeDamage(float enemydamage)
+    {
+        HP -= enemydamage;
+        
+        if (HP <= 0)
+        {
+            Die();
         }
     }
 

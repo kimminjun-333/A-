@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class CatSpawner : Spawner
+public class CatSpawner : Spawner, ITakeDamage
 {
     public float HP;
     private float maxhp;
@@ -42,9 +42,17 @@ public class CatSpawner : Spawner
     public void Spawn(Cat catprefab)
     {
         float y = Random.Range(spawnPoint.x, spawnPoint.y);
-        Cat catss = Instantiate(catprefab, new Vector3(this.transform.position.x, y), Quaternion.identity);
+        Instantiate(catprefab, new Vector3(this.transform.position.x, y), Quaternion.identity);
     }
+    public void TakeDamage(float enemydamage)
+    {
+        HP -= enemydamage;
 
+        if (HP <= 0)
+        {
+            Die();
+        }
+    }
     internal void Die()
     {
         if (HP < 0)

@@ -51,12 +51,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Dog
   moveSpeed: 10
-  Atttime: 1
+  AttSpeed: 1
   range: 20
   damage: 1
   hp: 100
-  price: 1
   AllTargeting: 0
+  price: 1
   hpBar: {fileID: 1310021245403451373}
   overlapBox: {fileID: 3342630521557146277}
   text: {fileID: 4227814076500646081}

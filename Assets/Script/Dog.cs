@@ -6,42 +6,14 @@ using UnityEngine;
 using UnityEngine.UI;
 using static UnityEngine.GraphicsBuffer;
 
-public class Dog : MonoBehaviour
+public class Dog : Unit, ITakeDamage
 {
-    public new string name;
-
-    [Tooltip("이동속도")]
-    public float moveSpeed;
-    [Tooltip("공격속도")]
-    public float Atttime;
-    [Tooltip("사정거리")]
-    public float range;
-    [Tooltip("공격력")]
-    public float damage;
-    private float maxhp;
-    [Tooltip("체력")]
-    public float hp;
+    
     [Tooltip("생산비용")]
     public int price;
 
-    private bool AttCoolTime = false;
-    [Tooltip("전체공격(체크O)/단일공격(체크X)")]
-    public bool AllTargeting;
-    private bool onattAll;
-
-    public float hpAmount { get { return hp / maxhp; } }
-    public Image hpBar;
-    
-
     private Cat target;
     private CatSpawner spawnertarget;
-    private Rigidbody2D rb;
-    public BoxCollider2D overlapBox;
-    public TMP_Text text;
-    private Color Wcolor;
-    public Renderer Renderer;
-    public GameObject die;
-
 
     private void Awake()
     {
@@ -113,7 +85,7 @@ public class Dog : MonoBehaviour
         if (onattAll == true)
         {
             AttCoolTime = true;
-            Invoke("inv", Atttime);
+            Invoke("inv", AttSpeed);
             onattAll = false;
         }
     }
@@ -147,7 +119,7 @@ public class Dog : MonoBehaviour
             {
                 AttCoolTime = true;
                 Att(target);
-                Invoke("inv", Atttime);
+                Invoke("inv", AttSpeed);
             }
         }
         if (target == null && spawnertarget != null)
@@ -156,7 +128,7 @@ public class Dog : MonoBehaviour
             {
                 AttCoolTime = true;
                 Att(spawnertarget);
-                Invoke("inv", Atttime);
+                Invoke("inv", AttSpeed);
             }
         }
     }
@@ -172,19 +144,9 @@ public class Dog : MonoBehaviour
         rb.MovePosition(movePos);
     }
 
-
-    private void Att(Cat target)
+    private void Att(ITakeDamage a)
     {
-        target.TakeDamage(damage);
-    }
-
-    private void Att(CatSpawner catspawner)
-    {
-        catspawner.HP -= damage;
-        if (catspawner.HP <= 0)
-        {
-            catspawner.Die();
-        }
+        a.TakeDamage(damage);
     }
     public void TakeDamage(float enemydamage)
     {
@@ -195,14 +157,12 @@ public class Dog : MonoBehaviour
             Die();
         }
     }
-
     private IEnumerator Hit()
     {
         Renderer.material.color = Color.red;
         yield return new WaitForSeconds(0.5f);
         Renderer.material.color = Wcolor;
     }
-
 
     public void Die()
     {

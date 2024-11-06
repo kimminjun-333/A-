@@ -6,8 +6,6 @@ public class StartSceneMove : MonoBehaviour
 {
     private float movespeed = 0.4f;
 
-
-
     private IEnumerator Move()
     {
         while (true)
