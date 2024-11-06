@@ -6,6 +6,14 @@ using UnityEngine.SceneManagement;
 public class StartScene : MonoBehaviour
 {
 
+    private void OnEnable()
+    {
+        if (GameSpeedCtrl.Instance != null)
+        {
+            GameSpeedCtrl.Instance.speed = 1f;
+        }
+        Time.timeScale = 1.0f;
+    }
 
     public void StartGame()
     {

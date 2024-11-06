@@ -32,7 +32,8 @@ public class DogSpawner : Spawner
 
     [Tooltip("스폰지점 y\nx : 최소값, y는 최대값")]
     public Vector2 spawnPoint;
-    //public Button[] buttons;
+    [Tooltip("스폰 쿨타임")]
+    public float spawncooltime;
 
     public Dog[] dogprefab;
     public GameObject skill;
@@ -69,10 +70,17 @@ public class DogSpawner : Spawner
     {
         Text();
 
+        Dogspawncooltimecheck();
+        
+        Levelupcheck();
+    }
+
+    private void Dogspawncooltimecheck()
+    {
         for (int i = 0; i < BottonClasses.Length; i++)
         {
             if (BottonClasses[i].price > Gold || BottonClasses[i].CoolTime == true)
-            {                 
+            {
                 BottonClasses[i].image.gameObject.SetActive(true);
                 BottonClasses[i].Button.interactable = false;
             }
@@ -82,11 +90,15 @@ public class DogSpawner : Spawner
                 BottonClasses[i].Button.interactable = true;
             }
         }
-        if(Gold >= levelupprice[Level])
+    }
+
+    private void Levelupcheck()
+    {
+        if (Gold >= levelupprice[Level])
         {
             LevelUpButton.interactable = true;
         }
-        if(Gold < levelupprice[Level])
+        if (Gold < levelupprice[Level])
         {
             LevelUpButton.interactable = false;
         }
@@ -98,14 +110,10 @@ public class DogSpawner : Spawner
                 LevelUpButton.GetComponent<LevelSkillButton>().maxlevel = true;
             }
         }
-
     }
-
-
 
     private void Text()
     {
-
         hptext.text = HP + " / " + maxhp;
         if (Level < LevelMax)
         {
@@ -161,10 +169,6 @@ public class DogSpawner : Spawner
             Level++;
             maxgold = levelupmaxgold[Level];
         }
-        if(Level >= LevelMax)
-        {
-
-        }
     }
 
     private IEnumerator Goldup()
@@ -195,7 +199,6 @@ public class DogSpawner : Spawner
 
             yield return null;
         }
-
     }
 
     public void Clik(Button a)
@@ -220,7 +223,6 @@ public class DogSpawner : Spawner
         {
             BottonClasses[4].Spawn();
         }
-
     }
 
     internal void Die()

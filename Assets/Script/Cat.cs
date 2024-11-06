@@ -163,13 +163,11 @@ public class Cat : MonoBehaviour
         AttCoolTime = false;
     }
 
-
     private void Move()
     {
         Vector2 movePos = rb.position + (new Vector2(1, 0) * moveSpeed * Time.deltaTime);
         rb.MovePosition(movePos);
     }
-
 
     private void Att(Dog target)
     {
@@ -203,8 +201,6 @@ public class Cat : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         Renderer.material.color = Wcolor;
     }
-
-   
 
     public void Die()
     {

@@ -21,11 +21,6 @@ public class StartSceneMove : MonoBehaviour
 
     private void OnEnable()
     {
-        if (GameSpeedCtrl.Instance != null)
-        {
-            GameSpeedCtrl.Instance.speed = 1f;
-        }
-        Time.timeScale = 1f;
         StartCoroutine(Move());
     }
 

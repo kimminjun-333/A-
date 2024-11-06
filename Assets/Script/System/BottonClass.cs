@@ -17,7 +17,6 @@ public class BottonClass : MonoBehaviour
     public TMP_Text text;
     public bool CoolTime;
 
-
     private void Start()
     {
         Button = this.GetComponent<Button>();
@@ -30,7 +29,6 @@ public class BottonClass : MonoBehaviour
         spawner.Gold -= price;
         float y = Random.Range(spawner.spawnPoint.x, spawner.spawnPoint.y);
         Dog dogs = Instantiate(DogPrefab, new Vector3(spawner.transform.position.x, y), Quaternion.identity);
-        GameManager.Instance.dogs.Add(dogs);
         CoolTimeOn();
     }
 
@@ -46,12 +44,12 @@ public class BottonClass : MonoBehaviour
 
     private IEnumerator Cool()
     {
-        float s = DogPrefab.Atttime;
+        float s = spawner.spawncooltime;
         while(s > 0f)
         {
             yield return new WaitForFixedUpdate();
             s -= Time.deltaTime;
-            cooltimebar.fillAmount = (s / DogPrefab.Atttime);
+            cooltimebar.fillAmount = (s / spawner.spawncooltime);
         }
         image.gameObject.SetActive(false);
         Button.interactable = true;

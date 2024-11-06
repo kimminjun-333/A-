@@ -9,8 +9,6 @@ public class Spawner : MonoBehaviour
     //public Cat[] catprefab;
     //public Dog[] dogprefab;
 
-    
-
     private void Start()
     {
         

@@ -18,10 +18,10 @@ public class CatSpawner : Spawner
     private void Start()
     {
         maxhp = HP;
-        StartCoroutine(SpawnTime(catprefab[0], catprefab[0].delay, catprefab[0].time));
-        StartCoroutine(SpawnTime(catprefab[1], catprefab[1].delay, catprefab[1].time));
-        StartCoroutine(SpawnTime(catprefab[2], catprefab[2].delay, catprefab[2].time));
-
+        for(int i = 0; i < catprefab.Length; i++)
+        {
+            StartCoroutine(SpawnTime(catprefab[i]));
+        }
     }
 
     private void Update()
@@ -29,13 +29,13 @@ public class CatSpawner : Spawner
         hptext.text = HP + " / " + maxhp;
     }
 
-    private IEnumerator SpawnTime(Cat catprefab, float delay, float time)
+    private IEnumerator SpawnTime(Cat catprefab)
     {
-        yield return new WaitForSeconds(delay);
+        yield return new WaitForSeconds(catprefab.delay);
         while (true)
         {
             Spawn(catprefab);
-            yield return new WaitForSeconds(time);
+            yield return new WaitForSeconds(catprefab.time);
         }
     }
 
@@ -43,7 +43,6 @@ public class CatSpawner : Spawner
     {
         float y = Random.Range(spawnPoint.x, spawnPoint.y);
         Cat catss = Instantiate(catprefab, new Vector3(this.transform.position.x, y), Quaternion.identity);
-        GameManager.Instance.cats.Add(catss);
     }
 
     internal void Die()

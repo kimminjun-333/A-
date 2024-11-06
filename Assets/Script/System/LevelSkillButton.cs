@@ -13,6 +13,7 @@ public class LevelSkillButton : MonoBehaviour
     private Color thiscolor;
     private bool buttonon = false;
     public bool maxlevel = false;
+    private Coroutine coroutine;
 
     private void Start()
     {
@@ -20,7 +21,7 @@ public class LevelSkillButton : MonoBehaviour
         image = GetComponent<Image>();
         thiscolor = image.color;
     }
-    Coroutine coroutine;
+
     private void Update()
     {
         if (button.interactable == false)
