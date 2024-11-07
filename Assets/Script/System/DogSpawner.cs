@@ -73,6 +73,12 @@ public class DogSpawner : MonoBehaviour, ITakeDamage
         Dogspawncooltimecheck();
         
         Levelupcheck();
+
+        if(Input.GetKeyDown(KeyCode.C))
+        {
+            Gold += 100;
+        }
+
     }
 
     private void Dogspawncooltimecheck()
@@ -175,7 +181,6 @@ public class DogSpawner : MonoBehaviour, ITakeDamage
     {
         while (true)
         {
-            yield return new WaitForSeconds(1f);
             if (Gold < maxgold)
             {
                 int plusgold = Upgold + ((Level - 1) * 4);
@@ -186,6 +191,7 @@ public class DogSpawner : MonoBehaviour, ITakeDamage
                     Gold = maxgold;
                 }
             }
+            yield return new WaitForSeconds(1f);
         }
     }
 

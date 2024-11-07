@@ -16,7 +16,7 @@ public class Dog : Unit, ITakeDamage
     private CatSpawner spawnertarget;
 
     [Tooltip("이동 방향\nx : -1(왼쪽이동) / 1(오른쪽이동), y : 0")]
-    public Vector2 movePos = new Vector2(-1, 0);
+    public Vector2 movePos = new Vector2(-0.15f, 0);
 
     private IEnumerator Start()
     {
