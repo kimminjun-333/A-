@@ -15,10 +15,8 @@ public class Dog : Unit, ITakeDamage
     private Cat target;
     private CatSpawner spawnertarget;
 
-    private void Awake()
-    {
-        rb = GetComponent<Rigidbody2D>();
-    }
+    [Tooltip("이동 방향\nx : -1(왼쪽이동) / 1(오른쪽이동), y : 0")]
+    public Vector2 movePos = new Vector2(-1, 0);
 
     private IEnumerator Start()
     {
@@ -27,6 +25,8 @@ public class Dog : Unit, ITakeDamage
         yield return null;
 
         Wcolor = Renderer.material.color;
+
+        Pos = movePos;
 
         maxhp = hp;
 
@@ -133,21 +133,6 @@ public class Dog : Unit, ITakeDamage
         }
     }
 
-    private void inv()
-    {
-        AttCoolTime = false;
-    }
-
-    private void Move()
-    {
-        Vector2 movePos = rb.position + (new Vector2(-1, 0) * moveSpeed * Time.deltaTime);
-        rb.MovePosition(movePos);
-    }
-
-    private void Att(ITakeDamage a)
-    {
-        a.TakeDamage(damage);
-    }
     public void TakeDamage(float enemydamage)
     {
         hp -= enemydamage;
@@ -157,12 +142,7 @@ public class Dog : Unit, ITakeDamage
             Die();
         }
     }
-    private IEnumerator Hit()
-    {
-        Renderer.material.color = Color.red;
-        yield return new WaitForSeconds(0.5f);
-        Renderer.material.color = Wcolor;
-    }
+
 
     public void Die()
     {

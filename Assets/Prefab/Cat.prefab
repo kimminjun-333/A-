@@ -482,7 +482,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6257954572621789458}
   - component: {fileID: 3830423049508201830}
-  - component: {fileID: 8572757735461612668}
   - component: {fileID: 6613634874616718313}
   - component: {fileID: 9143859059703106822}
   m_Layer: 0
@@ -527,41 +526,15 @@ MonoBehaviour:
   range: 10
   damage: 6
   hp: 80
-  delay: 0
-  time: 7
   AllTargeting: 0
   hpBar: {fileID: 8337019729522195104}
   overlapBox: {fileID: 6613634874616718313}
   text: {fileID: 9029158989078041178}
   Renderer: {fileID: 6194464311746167561}
   die: {fileID: 6538000359813094480, guid: 7343df2259dc03d41b93f43114bf051e, type: 3}
---- !u!50 &8572757735461612668
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8073853356541298460}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
+  delay: 0
+  time: 7
+  movePos: {x: 1, y: 0}
 --- !u!61 &6613634874616718313
 BoxCollider2D:
   m_ObjectHideFlags: 0

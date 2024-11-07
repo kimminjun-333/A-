@@ -27,13 +27,32 @@ public class Unit : MonoBehaviour
     public float hpAmount { get { return hp / maxhp; } }
     public Image hpBar;
 
-    protected Rigidbody2D rb;
     public BoxCollider2D overlapBox;
     public TMP_Text text;
     protected Color Wcolor;
     public Renderer Renderer;
     public GameObject die;
+    protected Vector2 Pos;
 
-    
+    protected void inv()
+    {
+        AttCoolTime = false;
+    }
+    protected void Move()
+    {
+        transform.Translate(Pos * moveSpeed * Time.deltaTime);
+    }
+
+    protected void Att(ITakeDamage a)
+    {
+        a.TakeDamage(damage);
+    }
+
+    protected IEnumerator Hit()
+    {
+        Renderer.material.color = Color.red;
+        yield return new WaitForSeconds(0.5f);
+        Renderer.material.color = Wcolor;
+    }
 
 }
